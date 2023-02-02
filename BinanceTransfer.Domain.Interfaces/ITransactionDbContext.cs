@@ -6,5 +6,5 @@ namespace BinanceTransfer.Domain.Interfaces;
 public interface ITransactionDbContext
 {
     DbSet<Transaction> Transactions { get; set; }
-    Task<long> SaveChangesAsync(CancellationToken cancellationToken);
+    Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 }

@@ -15,7 +15,8 @@ public class CreateTransactionCommandHandler : IRequestHandler<CreateTransaction
         var transaction = new Transaction()
         {
             Id = request.Id,
-            CreateDate = request.CreateDate
+            CreateDate = request.CreateDate,
+            NameTransaction = request.NameTransaction
         };
 
         await _dbContext.Transactions.AddAsync(transaction, cancellationToken);
