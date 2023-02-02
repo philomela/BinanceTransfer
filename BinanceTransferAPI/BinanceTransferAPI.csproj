@@ -13,4 +13,9 @@
       </Content>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\BinanceTransfer.Application\BinanceTransfer.Application.csproj" />
+      <ProjectReference Include="..\BinanceTransfer.Infrastructure\BinanceTransfer.Infrastructure.csproj" />
+    </ItemGroup>
+
 </Project>
