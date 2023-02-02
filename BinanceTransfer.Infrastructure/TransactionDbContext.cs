@@ -1,5 +1,6 @@
 ﻿using BinanceTransfer.Domain.Core;
 using BinanceTransfer.Domain.Interfaces;
+using BinanceTransfer.Infrastructure.EntityTypeConfigurations;
 using Microsoft.EntityFrameworkCore;
 
 namespace BinanceTransfer.Infrastructure;
@@ -10,8 +11,13 @@ sealed class TransactionDbContext : DbContext, ITransactionDbContext
     public TransactionDbContext(DbContextOptions<TransactionDbContext> options) :
         base(options) { }
 
-    public Task<long> SaveChangesAsync(CancellationToken cancellationToken)
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        throw new NotImplementedException();
+        modelBuilder.ApplyConfiguration(new TransactionConfiguration());
+    }
+
+    public async Task<int> SaveChangesAsync(CancellationToken cancellationToken)
+    {
+        return await SaveChangesAsync();
     }
 }
