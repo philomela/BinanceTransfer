@@ -11,11 +11,12 @@ public static class DependencyInjection
     {
         var connectionString = configuration["DbConnection"];
         
-        services.AddDbContext<TransactionDbContext>(options =>
+        services.AddDbContext<DomainDbContext>(options =>
         {
             options.UseSqlServer(connectionString);
         });
-        services.AddScoped<ITransactionDbContext>(provider => provider.GetService<TransactionDbContext>());
+        
+        services.AddScoped<IDomainDbContext>(provider => provider.GetService<DomainDbContext>());
 
         return services;
     }
