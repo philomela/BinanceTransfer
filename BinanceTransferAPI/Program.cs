@@ -3,7 +3,6 @@ using BinanceTransfer.Application;
 using BinanceTransfer.Application.Commands.CreateTransaction;
 using BinanceTransfer.Application.Common.Mappings;
 using BinanceTransfer.Application.Queries.GetCard;
-using BinanceTransfer.Domain.Interfaces;
 using BinanceTransfer.Infrastructure;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -24,10 +23,18 @@ var app = builder.Build();
 //app.UseCors();
 //app.UseHttpsRedirection();
 
-app.MapPost("/createTransaction", async ([FromServices] IMediator mediator) => 
-    await mediator.Send(new CreateTransactionCommand(DateTime.Now, "BinanceTransaction1")));
+#region Endpoints admin application
 
 app.MapGet("/getCard", async ([FromServices] IMediator mediator) =>
     await mediator.Send(new GetCardQuery()));
+
+#endregion
+
+#region Endpoint telegram bot
+
+app.MapPost("/createTransaction", async ([FromServices] IMediator mediator) => 
+    await mediator.Send(new CreateTransactionCommand(DateTime.Now, "BinanceTransaction1")));
+
+#endregion
 
 app.Run();
