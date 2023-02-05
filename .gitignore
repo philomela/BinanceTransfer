@@ -3,3 +3,16 @@ obj/
 /packages/
 riderModule.iml
 /_ReSharper.Caches/
+*.user
+.idea/.idea.BinanceTransfer/.idea/.gitignore
+.idea/.idea.BinanceTransfer/.idea/encodings.xml
+.idea/.idea.BinanceTransfer/.idea/indexLayout.xml
+.idea/.idea.BinanceTransfer/.idea/vcs.xml
+.idea/config/applicationhost.config
+.vs/BinanceTransfer/DesignTimeBuild/.dtbcache.v2
+.vs/BinanceTransfer/FileContentIndex/6dcbf811-901d-49d2-af3b-be2eed57213b.vsidx
+.vs/BinanceTransfer/FileContentIndex/read.lock
+.vs/BinanceTransfer/v17/.futdcache.v2
+.vs/BinanceTransfer/v17/.suo
+.vs/ProjectEvaluation/binancetransfer.metadata.v5.2
+.vs/ProjectEvaluation/binancetransfer.projects.v5.2
