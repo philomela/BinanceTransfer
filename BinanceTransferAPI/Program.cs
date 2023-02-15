@@ -30,7 +30,7 @@ app.MapGet("/getCard", async ([FromServices] IMediator mediator) =>
 
 #endregion
 
-#region Endpoint telegram bot
+#region Endpoints telegram bot
 
 app.MapPost("/createTransaction", async ([FromServices] IMediator mediator) => 
     await mediator.Send(new CreateTransactionCommand(DateTime.Now, "BinanceTransaction1")));
