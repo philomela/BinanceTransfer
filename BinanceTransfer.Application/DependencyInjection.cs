@@ -1,4 +1,5 @@
 ﻿using System.Reflection;
+using BinanceTransfer.Application.Common.Behaviors;
 using MediatR;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
@@ -11,7 +12,7 @@ public static class DependencyInjection
     {
         services.AddMediatR(Assembly.GetExecutingAssembly());
         services.AddValidatorsFromAssemblies(new[] { Assembly.GetExecutingAssembly() });
-        services.AddTransient(typeof(IPipelineBehavior<,>));
+        services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
         return services;
     }
 }
